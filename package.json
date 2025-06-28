@@ -5,13 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev:client": "webpack serve --config webpack.config.cjs",
-    "dev:server": "nodemon --watch src/server --exec cross-env NODE_OPTIONS=--loader=ts-node/esm ts-node src/server/index.ts",
-    "dev": "concurrently 'npm run dev:client' 'npm run dev:server'",
-    "build:client": "webpack --config webpack.config.cjs",
-    "build:server": "tsc && cpx \"src/server/views/**/*\" dist/server/views",
-    "build": "concurrently 'npm run build:client' 'npm run build:server'",
-    "start:server": "node dist/server/index.js"
+    "dev:client": "webpack serve --config webpack.client.config.cjs",
+    "build:client": "webpack --config webpack.client.config.cjs"
   },
   "compilerOptions": {
     "module": "ESNext",
@@ -22,30 +17,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "consolidate": "^1.0.4",
-    "css-loader": "^7.1.2",
-    "dustjs-helpers": "^1.7.4",
-    "dustjs-linkedin": "^2.7.5",
     "express": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "style-loader": "^4.0.0",
-    "ts-loader": "^9.5.2",
-    "webpack": "^5.99.9",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "webpack": "^5.99.9"
   },
   "devDependencies": {
-    "@types/consolidate": "^0.14.4",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "concurrently": "^9.2.0",
-    "cpx": "^1.5.0",
-    "cross-env": "^7.0.3",
-    "nodemon": "^3.1.10",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
+    "depcheck": "^1.4.7",
     "typescript": "^5.8.3"
   }
 }
