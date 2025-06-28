@@ -3,15 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-"scripts": {
-  "dev": "webpack serve --config webpack.config.js",
-  "build": "webpack --config webpack.config.js"
-},
+  "type": "module",
+  "scripts": {
+    "dev": "webpack serve --config webpack.config.cjs",
+    "build": "webpack --config webpack.config.cjs",
+    "start:server": "node --loader ts-node/esm src/server/index.ts"
+  },
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2020",
+    "moduleResolution": "node"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "consolidate": "^1.0.4",
     "css-loader": "^7.1.2",
+    "dustjs-helpers": "^1.7.4",
+    "dustjs-linkedin": "^2.7.5",
+    "express": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -22,8 +33,10 @@
     "webpack-dev-server": "^5.2.2"
   },
   "devDependencies": {
+    "@types/consolidate": "^0.14.4",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
 }
